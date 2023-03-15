@@ -1,0 +1,21 @@
+.app {
+    /* display: flex;
+    flex-direction: column; */
+    height: 100vh;
+}
+
+.main {
+    width: 1240px;
+    margin: 0 auto;    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    height: 100vh;
+}
+
+.headerText {
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,25 @@
+.elements {
+    overflow-y: scroll;
+    max-height: 650px;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.count {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
+.count_icon_number {
+    display: flex;
+    align-items: center;
+    margin-right: 41px;
+}
+
+.element_up {
+    margin-left: 24px;
+}
