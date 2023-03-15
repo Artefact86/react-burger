@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { IngredientDetails } from '../IngredientDetails /IngredientDetails';
 import { Popup } from '../Modal/Modal';
 import style from './Category.module.css';
-import { ingredientPropTypes } from '../utils/prop-types';
+import { ingredientPropTypes } from '../../utils/prop-types';
 
 export const Category = ({title, id, ingredients}) => {
     const [ingredientModal, setIngredientModal] = useState(null)

@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { Appheader } from "../AppHeader/AppHeader";
 import { BurgerConstructor } from "../BurgerConstructor/BurgerConstructor";
 import { BurgerIngrediens } from "../BurgerIngredients/BurgerIngredients";
-import { OverlayPopup } from "../ModalOverlay/ModalOverlay";
-import { getIngridients } from "../utils/api"
-import styleApp from './styleApp.module.css'
+import { getIngridients } from "../../utils/api"
+import styleApp from './StyleApp.module.css'
 
 
 //getIngridients().then(data => console.log(data));
