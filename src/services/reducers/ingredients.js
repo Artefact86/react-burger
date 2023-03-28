@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getIngredients } from '../../utils/api';
 
-console.log(getIngredients);
+//console.log(getIngredients);
 
 const initialState = {
     data: [],
@@ -13,13 +13,13 @@ export const fetchByIngredients = createAsyncThunk(
     'ingredients/fetchByIngredients',
     async (_, { dispatch, getState, rejectWithValue, fulfillWithValue }) => {
         const data = await getIngredients();
-        console.log(data);
         if(!data) {
             return rejectWithValue({message: 'Ошибка сервера'});
         }
+        console.log(data);
         return data;
     }
-)
+    )
 
 export const ingredientSlice = createSlice({
     name: 'ingredients',

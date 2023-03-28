@@ -15,9 +15,12 @@ export const getIngredients = () => {
     return fetch(`${BURGER_API_URI}/ingredients`)
         .then(getResponse)
         .then(dataIngredients => {
+            console.log(dataIngredients);
             if (dataIngredients.success) {
+                console.log(dataIngredients);
                 return dataIngredients.data;
             }
+            
         })
         .catch(err=>{console.log(err)})
 }
