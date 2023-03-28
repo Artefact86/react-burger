@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import style from './BurgerConstructor.module.css';
 import { OrderDetails } from '../OrderDetails/OrderDetails'
-import { Popup } from '../Modal/Modal';
+import { Modal } from '../Modal/Modal';
 
 export const BurgerConstructor = ({ constructorIngredients }) => {
   const [ingredientModal, setIngredientModal] = useState(false);
@@ -15,18 +15,18 @@ export const BurgerConstructor = ({ constructorIngredients }) => {
 
   return (
     <section className={style.section}>
-      <div className={style.element_up}>
-        <ConstructorElement {...buns} type='top' thumbnail={buns?.image} text={buns?.name} key={buns?._id} isLocked={true} />
+      <div className={style.element_up + ' mb-4'}>
+        <ConstructorElement {...buns} type='top' thumbnail={buns?.image} text={buns?.name + ' (верх)'} key={buns?._id} isLocked={true} />
       </div>
       <div className={style.elements + ' custom-scroll'}>
-        {noElement?.map(data => <div className={style.element_box} key={data._id}>
+        {noElement?.map(data => <div className={style.element_box + ' mb-4'} key={data._id}>
           <DragIcon className={style.DragIcon} />
           <ConstructorElement thumbnail={data.image} key={data._id} text={data.name} {...data} />
         </div>)}
       </div>
       <div className={style.element_up}>
         <ConstructorElement {...lastElement} type='bottom' thumbnail={lastElement?.image} 
-        key={lastElement?._id} text={lastElement?.name} isLocked={true}/>
+        key={lastElement?._id} text={lastElement?.name + ' (низ)'} isLocked={true}/>
       </div>
       <div className={style.count}>
         <div className={style.count_icon_number}>
@@ -37,27 +37,27 @@ export const BurgerConstructor = ({ constructorIngredients }) => {
           Оформить заказ
         </Button>
       </div>
-      {ingredientModal && <Popup onClose={closePopup}><OrderDetails orderId={645}/></Popup>}
+      {ingredientModal && <Modal onClose={closePopup}><OrderDetails orderId={645}/></Modal>}
     </section>
   )
 }
 
-BurgerConstructor.propTypes = {
-  constructorIngredients: PropTypes.arrayOf(PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      image_mobile: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      type: PropTypes.string.isRequired
-  })).isRequired
-}
+BurgerConstructor.propTypes = PropTypes.arrayOf(PropTypes.shape({        
+  text: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
+  isLocked: PropTypes.bool.isRequired,
+  extraClass: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired
+})).isRequired
 
 ConstructorElement.propTypes = PropTypes.arrayOf(PropTypes.shape({        
-  text: PropTypes.string,
-  thumbnail: PropTypes.string,
-  price: PropTypes.number,
-  type: PropTypes.string,
-  isLocked: PropTypes.bool,
-  extraClass: PropTypes.string,
-  handleClose: PropTypes.func
+  text: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
+  isLocked: PropTypes.bool.isRequired,
+  extraClass: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired
 })).isRequired

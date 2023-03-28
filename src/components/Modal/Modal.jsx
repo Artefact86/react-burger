@@ -3,12 +3,12 @@ import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components"
 import { createPortal } from "react-dom"
 import PropTypes from 'prop-types';
 import style from './Modal.module.css'
-import { OverlayPopup } from '../ModalOverlay/ModalOverlay'
+import { ModalOverlay } from '../ModalOverlay/ModalOverlay'
 import { useEffect } from "react";
 
 const modalRoot = document.querySelector('#modals');
 
-export const Popup = ({ title, onClose, children }) => {
+export const Modal = ({ title, onClose, children }) => {
 
     useEffect(() => {
         function closePopupEsc(event) {
@@ -30,15 +30,15 @@ export const Popup = ({ title, onClose, children }) => {
                 </div>
                 {children}
             </div>
-            <OverlayPopup onClick={onClose}></OverlayPopup>
+            <ModalOverlay onClick={onClose}></ModalOverlay>
         </>,
         modalRoot
     )
 }
 
-Popup.propTypes = {
+Modal.propTypes = {
     title: PropTypes.string.isRequired,
-    onClose: PropTypes.func,
+    onClose: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired
 
 }

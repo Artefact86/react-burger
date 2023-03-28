@@ -2,7 +2,7 @@ import { BurgerIngredient } from '@ya.praktikum/react-developer-burger-ui-compon
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IngredientDetails } from '../IngredientDetails /IngredientDetails';
-import { Popup } from '../Modal/Modal';
+import { Modal } from '../Modal/Modal';
 import style from './Category.module.css';
 import { ingredientPropTypes } from '../../utils/prop-types';
 
@@ -16,7 +16,7 @@ export const Category = ({title, id, ingredients}) => {
                 {ingredients?.map(data => <BurgerIngredient key={data._id} {...data} count={1} 
                  onClick={() => setIngredientModal(data)}/>)}
             </div>
-            {ingredientModal && <Popup title='Детали ингредиента' onClose={closeModalIngredient}><IngredientDetails data={ingredientModal}/></Popup>}
+            {ingredientModal && <Modal title='Детали ингредиента' onClose={closeModalIngredient}><IngredientDetails data={ingredientModal}/></Modal>}
 
         </>
 
@@ -26,7 +26,6 @@ export const Category = ({title, id, ingredients}) => {
 Category.propTypes = {
     title: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    ingredients: PropTypes.arrayOf(ingredientPropTypes.isRequired).isRequired
-
+    //ingredients: PropTypes.arrayOf(ingredientPropTypes.isRequired).isRequired
 }
 

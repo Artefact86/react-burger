@@ -1,18 +1,23 @@
 const BURGER_API_URI = 'https://norma.nomoreparties.space/api';
 
 const getResponse = (res) => {
-    if(res.ok) {
+    if (res.ok) {
         return res.json();
     }
     return Promise.reject(`Ошибка ${res.status}`);
 };
 
-export const getIngridients = () => {
+// export const listenRequest = (res) => {
+//   return res.ok ? res.json() : res.json().then(err => Promise.reject(err))
+// }
+
+export const getIngredients = () => {
     return fetch(`${BURGER_API_URI}/ingredients`)
-      .then(getResponse)
-      .then(dataIngridients => {
-        if(dataIngridients.success) {
-            return dataIngridients.data;
-        }
-      })
+        .then(getResponse)
+        .then(dataIngredients => {
+            if (dataIngredients.success) {
+                return dataIngredients.data;
+            }
+        })
+        .catch(err=>{console.log(err)})
 }

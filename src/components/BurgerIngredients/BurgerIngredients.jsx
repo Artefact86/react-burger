@@ -42,23 +42,12 @@ export const BurgerIngrediens = ({ ingredients }) => {
   )
 }
 
-BurgerIngrediens.propTypes = {
-  ingredients: PropTypes.arrayOf(PropTypes.shape({
-      __v: PropTypes.number,
-      _id: PropTypes.string,
-      calories: PropTypes.number,
-      carbohydrates: PropTypes.number,
-      fat: PropTypes.number,
-      image: PropTypes.string,
-      image_large: PropTypes.string,
-      image_mobile: PropTypes.string,
-      name: PropTypes.string,
-      price: PropTypes.number,
-      proteins: PropTypes.number,
-      type: PropTypes.string
-  })).isRequired
-}
-
-Tab.propTypes = {
-  tab: PropTypes.func
-}
+BurgerIngrediens.propTypes = PropTypes.arrayOf(PropTypes.shape({        
+  text: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
+  isLocked: PropTypes.bool.isRequired,
+  extraClass: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired
+})).isRequired
