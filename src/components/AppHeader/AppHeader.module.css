@@ -1,0 +1,28 @@
+.header {
+    width: 1240px;
+    margin: 0 auto;
+    background-color: var(--background);
+}
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.link {
+    color: var(--text-primary-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.link_active {
+    color: var(--text-inactive-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.header__column {
+    display: flex;
+    flex: 1;
+}

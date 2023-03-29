@@ -1,0 +1,10 @@
+.menu {
+    display: flex;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.ingredients {
+    overflow-y: scroll;
+    max-height: 700px;
+  }

@@ -1,0 +1,14 @@
+.list {
+    display: flex;
+    text-decoration: none;
+    gap: 20px;
+}
+
+.list_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    /* margin-left: 20px; */
+}
